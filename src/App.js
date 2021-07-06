@@ -1,10 +1,27 @@
 import './App.css';
 
+import Header from './components/Header';
+import Numbers from './components/Numbers';
+import MoneyValue from './components/MoneyValue';
+import NumbersSelected from './components/NumbersSelected';
+
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+`
+
 function App() {
   return (
-    <div className="App">
-      Whe Whe App
-    </div>
+    <>
+      <Header />
+      <AppContainer>
+        <MoneyValue />
+        <Numbers />
+        <NumbersSelected />
+      </AppContainer>
+    </>
   );
 }
 
