@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Comic Neue', cursive;
-  background: rgb(255,197,80);
-  background: linear-gradient(0deg, rgba(255,197,80,1) 20%, rgba(255,209,0,1) 100%);
+  font-family: "Comic Neue", cursive;
+  /* background: rgb(255, 197, 80);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 197, 80, 1) 20%,
+    rgba(255, 209, 0, 1) 100%
+  ); */
 }

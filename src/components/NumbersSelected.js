@@ -1,24 +1,36 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const NumbersSelectedContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    border: 10px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(90deg, rgba(82,82,228,1) 20%, rgba(0,212,255,1) 100%);
-    justify-content: space-between;
-    background: linear-gradient(0deg, rgba(255,209,0,1) 20%, orange 100%);
-    align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(0deg, rgba(255, 209, 0, 1) 20%, orange 100%);
+  /* align-items: center; */
+  padding-left: 30px;
+`;
+
+const Marks = styled.div`
+  h3 {
+    margin: 0 0 5px 0;
+    font-weight: 700;
+  }
+`;
 
 function NumbersSelected() {
-    return (
-        <NumbersSelectedContainer>
-            <h3>Numbers Selected</h3>
-            <h3>Total: 0</h3>
-        </NumbersSelectedContainer>
-    )
+  return (
+    <NumbersSelectedContainer>
+      <Marks>
+        <h1>Numbers Selected</h1>
+        <h3>Mark: 2</h3>
+        <h3>Mark: 12</h3>
+        <h3>Mark: 20</h3>
+        <h3>Mark: 8</h3>
+        <h3>Mark: 17</h3>
+      </Marks>
+      <h1>Total: $25.00</h1>
+    </NumbersSelectedContainer>
+  );
 }
 
-export default NumbersSelected
+export default NumbersSelected;

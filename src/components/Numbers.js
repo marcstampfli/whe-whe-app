@@ -2,28 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 const NumbersContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    background-color: blue;
-    padding: 10px;
-    justify-content: stretch; 
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background-color: blue;
+  padding: 10px;
 `;
 
 const Number = styled.div`
-    display: flex;
-    background-color: black;
-    color: yellow;
-    font-size: 6rem;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    font-weight: 700;
-    &:hover,
-    &.active {
-        background: yellow;
-        color: black;
-        cursor: pointer;
-    }
+  display: flex;
+  background-color: black;
+  color: yellow;
+  font-size: 6rem;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  font-weight: 700;
+  &:hover,
+  &.active {
+    background: yellow;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 function Numbers() {
@@ -35,11 +34,7 @@ function Numbers() {
     return row;
   };
 
-  return (
-    <NumbersContainer>
-      {printNumbers1To20()}
-    </NumbersContainer>
-  );
+  return <NumbersContainer>{printNumbers1To20()}</NumbersContainer>;
 }
 
 export default Numbers;
