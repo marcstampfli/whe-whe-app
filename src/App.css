@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Comic Neue", cursive;
+  min-height: 100%;
   /* background: rgb(255, 197, 80);
   background: linear-gradient(
     0deg,
