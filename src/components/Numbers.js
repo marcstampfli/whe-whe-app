@@ -6,7 +6,6 @@ const NumbersContainer = styled.div`
   grid-template-columns: repeat(6, 1fr);
   background-color: blue;
   padding: 10px;
-  /* min-height: 100%; */
   @media (max-width: 480px) {
     grid-template-columns: repeat(4, 1fr);
   }

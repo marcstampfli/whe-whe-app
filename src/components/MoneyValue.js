@@ -4,7 +4,6 @@ import styled from "styled-components";
 const MoneyValueContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100%;
   align-items: center;
   background: linear-gradient(0deg, rgba(255, 209, 0, 1) 20%, orange 100%);
 `;

@@ -10,16 +10,13 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
   width: 100%;
-  min-height: 100%;
-  /* overflow: hidden; */
 `;
 
 const AppContainer = styled.div`
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  min-height: 100%;
+  height: calc(100vh - 190px);
   @media (max-width: 500px) {
     display: flex;
     flex-direction: column;

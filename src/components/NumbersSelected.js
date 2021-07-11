@@ -6,9 +6,7 @@ const NumbersSelectedContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background: linear-gradient(0deg, rgba(255, 209, 0, 1) 20%, orange 100%);
-  /* align-items: center; */
   padding-left: 30px;
-  min-height: 100%;
 `;
 
 const Marks = styled.div`
