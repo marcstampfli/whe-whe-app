@@ -1,27 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const MoneyValueContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  background: linear-gradient(0deg, rgba(255, 209, 0, 1) 20%, orange 100%);
-`;
-
-const Money = styled.div`
-  display: flex;
-  font-size: 4rem;
-  a {
-    color: red;
-  }
-`;
-
 function MoneyValue() {
   return (
     <MoneyValueContainer>
-      {/* <div>
-        <img src="../img/lotteryballs.png" alt="" width="100%" />
-      </div> */}
       <Money>
         <a href="/">$1</a>
       </Money>
@@ -39,3 +21,18 @@ function MoneyValue() {
 }
 
 export default MoneyValue;
+
+const MoneyValueContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: linear-gradient(0deg, yellow 0%, orange 100%);
+`;
+
+const Money = styled.div`
+  display: flex;
+  font-size: 4rem;
+  a {
+    color: red;
+  }
+`;

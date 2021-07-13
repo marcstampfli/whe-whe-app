@@ -1,6 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+function Header() {
+  return (
+    <Title>
+      <h1>WHE WHE on D' Avenue</h1>
+    </Title>
+  );
+}
+
+export default Header;
+
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -17,15 +27,14 @@ const Title = styled.div`
     font-weight: 700;
     margin: 40px 0;
     text-shadow: 1px 1px 1px #000;
+    @media (max-width: 1024px) {
+      font-size: 5rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 4rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
   }
 `;
-
-function Header() {
-  return (
-    <Title>
-      <h1>WHE WHE on D' Avenue</h1>
-    </Title>
-  );
-}
-
-export default Header;
