@@ -4,9 +4,11 @@ import { NumberContext } from "../contexts/NumberContext";
 import { MoneyValueContext } from "../contexts/MoneyValueContext";
 
 function Numbers() {
-  const numbers = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
+  const numbers = [];
+  for (let i = 1; i <= 20; i++) {
+    numbers.push(<span>{i}</span>);
+  }
+
   const [selectedNumbers, setSelectedNumbers] = useContext(NumberContext);
   const [moneyValueTotal, setMoneyValueTotal] = useContext(MoneyValueContext);
 
@@ -28,19 +30,7 @@ function Numbers() {
     alert(`Total: ${moneyValueTotal}`);
   };
 
-  // const selectedNumber = numbers.includes(selectedNumbers);
-
-  // const selectedNumber = () => {
-  //   numbers.map(function (num) {
-  //     if (numbers.includes(selectedNumbers)) {
-  //       return true;
-  //     }
-  //   });
-  // };
-
-  const selectedNumber = numbers.forEach((number) => {
-    return true
-  })
+  const selectedNumber = numbers.includes(selectedNumbers);
 
   return (
     <NumbersContainer>
