@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { NumberContext } from "../contexts/NumberContext";
+import { MoneyValueContext } from "../contexts/MoneyValueContext";
 
 function MoneyValue() {
+  const [selectedNumbers] = useContext(NumberContext);
+  const [moneyValueTotal, setMoneyValueTotal] = useContext(MoneyValueContext);
+
+  const selectMoneyValue = (e) => {
+    e.preventDefault(); 
+
+    if (selectedNumbers.length === 5) {
+      setMoneyValueTotal((prevValue) => [
+        ...prevValue,
+        { value: e.target.value },
+      ]); 
+    } else {
+      alert("Select 5 numbers to set a money value.");
+    }
+  };
+
   return (
     <MoneyValueContainer>
-      <Money>
-        <a href="/">$1</a>
+      <Money onClick={selectMoneyValue} value="1">
+        $1
       </Money>
-      <Money>
-        <a href="/">$5</a>
+      <Money onClick={selectMoneyValue} value="5">
+        $5
       </Money>
-      <Money>
-        <a href="/">$10</a>
+      <Money onClick={selectMoneyValue} value="10">
+        $10
       </Money>
-      <Money>
-        <a href="/">$20</a>
+      <Money onClick={selectMoneyValue} value="20">
+        $20
       </Money>
     </MoneyValueContainer>
   );
@@ -29,9 +47,12 @@ const MoneyValueContainer = styled.div`
   background: linear-gradient(0deg, yellow 0%, orange 100%);
 `;
 
-const Money = styled.div`
+const Money = styled.div.attrs((props) => ({
+  value: props.value || 0,
+}))`
   display: flex;
   font-size: 4rem;
+  cursor: pointer;
   a {
     color: red;
   }

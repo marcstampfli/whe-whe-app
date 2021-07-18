@@ -14,10 +14,14 @@ function Numbers() {
 
   const selectNumber = (e) => {
     e.preventDefault();
-    setSelectedNumbers((prevNumbers) => [
-      ...prevNumbers,
-      { selectedNumbers: selectedNumbers },
-    ]);
+    if (selectedNumbers <= 5) {
+      setSelectedNumbers((prevNumbers) => [
+        ...prevNumbers,
+        { selectedNumbers: selectedNumbers },
+      ]);
+    } else {
+      alert("Max numbers selected!");
+    }
   };
 
   const clearNumbers = (e) => {
@@ -27,7 +31,7 @@ function Numbers() {
   };
 
   const cashTicket = () => {
-    alert(`Total: ${moneyValueTotal}`);
+    alert(`Total: $${moneyValueTotal}`);
   };
 
   const selectedNumber = numbers.includes(selectedNumbers);
@@ -54,15 +58,14 @@ export default Numbers;
 const NumbersContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: darkblue;
   @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 
 const Number = styled.button`
   display: flex;
-  background-color: black;
+  background-color: #161616;
   color: yellow;
   font-size: 6rem;
   align-items: center;
@@ -74,7 +77,8 @@ const Number = styled.button`
     font-size: 4rem;
   }
   @media (max-width: 480px) {
-    font-size: 3rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
   }
   &:hover,
   &.active {
@@ -98,12 +102,17 @@ const Cash = styled.button`
   }
   @media (max-width: 468px) {
     font-size: 2.5rem;
+    grid-column: 1 / 3;
   }
 `;
 
 const Clear = styled(Cash)`
-  grid-column: 4 / 6;
   background-color: darkred;
+  grid-column: 4 / 6;
+  @media (max-width: 468px) {
+    font-size: 2.5rem;
+    grid-column: 3 / 5;
+  }
   &:hover {
     background-color: red;
   }
