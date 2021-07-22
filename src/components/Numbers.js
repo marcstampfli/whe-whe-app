@@ -19,17 +19,18 @@ function Numbers() {
     e.preventDefault();
     if (selectedNumbers.length < 5) {
       setSelectedNumbers([
-        { id: numberObj.id, title: numberObj.title, btnState: true },
+        numbers.forEach(({ id, title }) =>
+          selectedNumbers.push({
+            id: id,
+            title: title,
+            btnState: true,
+          })
+        ),
       ]);
+      console.log(selectedNumbers);
     } else {
       alert("Max numbers selected!");
     }
-  };
-
-  const clearNumbers = (e) => {
-    e.preventDefault();
-    setSelectedNumbers([]);
-    setMoneyValueTotal(0);
   };
 
   const cashTicket = (e) => {
@@ -41,12 +42,16 @@ function Numbers() {
     }
   };
 
+  const clearNumbers = (e) => {
+    e.preventDefault();
+    setSelectedNumbers([]);
+    setMoneyValueTotal(0);
+  };
+
   const closeModal = (e) => {
     e.preventDefault();
     setShowModal(false);
   };
-
-  // const selectedNumber = numbers.includes(selectedNumbers);
 
   return (
     <NumbersContainer>
