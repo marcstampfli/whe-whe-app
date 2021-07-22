@@ -8,13 +8,13 @@ function MoneyValue() {
   const [moneyValueTotal, setMoneyValueTotal] = useContext(MoneyValueContext);
 
   const selectMoneyValue = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (selectedNumbers.length === 5) {
       setMoneyValueTotal((prevValue) => [
         ...prevValue,
-        { value: e.target.value },
-      ]); 
+        { moneyValueTotal: moneyValueTotal },
+      ]);
     } else {
       alert("Select 5 numbers to set a money value.");
     }
@@ -47,9 +47,7 @@ const MoneyValueContainer = styled.div`
   background: linear-gradient(0deg, yellow 0%, orange 100%);
 `;
 
-const Money = styled.div.attrs((props) => ({
-  value: props.value || 0,
-}))`
+const Money = styled.div`
   display: flex;
   font-size: 4rem;
   cursor: pointer;

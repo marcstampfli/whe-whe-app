@@ -1,23 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { NumberContext } from "../contexts/NumberContext";
 import { MoneyValueContext } from "../contexts/MoneyValueContext";
+import CashAmount from "./CashAmount";
 
 function Numbers() {
-  const numbers = [];
+  const numberObj = [];
   for (let i = 1; i <= 20; i++) {
-    numbers.push(<span>{i}</span>);
+    numberObj.push({ id: i, title: i, btnState: false });
   }
 
+  const [numbers, setNumbers] = useState(numberObj);
   const [selectedNumbers, setSelectedNumbers] = useContext(NumberContext);
   const [moneyValueTotal, setMoneyValueTotal] = useContext(MoneyValueContext);
+  const [showModal, setShowModal] = useState(false);
 
   const selectNumber = (e) => {
     e.preventDefault();
-    if (selectedNumbers <= 5) {
-      setSelectedNumbers((prevNumbers) => [
-        ...prevNumbers,
-        { selectedNumbers: selectedNumbers },
+    if (selectedNumbers.length < 5) {
+      setSelectedNumbers([
+        { id: numberObj.id, title: numberObj.title, btnState: true },
       ]);
     } else {
       alert("Max numbers selected!");
@@ -30,25 +32,38 @@ function Numbers() {
     setMoneyValueTotal(0);
   };
 
-  const cashTicket = () => {
-    alert(`Total: $${moneyValueTotal}`);
+  const cashTicket = (e) => {
+    e.preventDefault();
+    if (selectedNumbers.length === 5 && moneyValueTotal > 0) {
+      setShowModal(true);
+    } else {
+      alert("Select 5 numbers and set a money value to cash the ticket.");
+    }
   };
 
-  const selectedNumber = numbers.includes(selectedNumbers);
+  const closeModal = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+  };
+
+  // const selectedNumber = numbers.includes(selectedNumbers);
 
   return (
     <NumbersContainer>
-      {numbers.map((number) => (
+      {numbers.map(({ id, title, btnState }) => (
         <Number
-          key={number}
+          key={id}
           onClick={selectNumber}
-          className={selectedNumber ? "active" : ""}
+          className={btnState ? "active" : ""}
         >
-          {number}
+          {title}
         </Number>
       ))}
       <Cash onClick={cashTicket}>Cash</Cash>
       <Clear onClick={clearNumbers}>Clear</Clear>
+      {showModal && (
+        <CashAmount text="Enter amount received" onClose={closeModal} />
+      )}
     </NumbersContainer>
   );
 }
